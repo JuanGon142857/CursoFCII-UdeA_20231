@@ -3,7 +3,7 @@
 #include <iomanip>
 using namespace std;
 
-double f(double t, double y)
+double funcion(double t, double y)
 {
     return y - pow(t, 2) + 1;
 }
@@ -25,8 +25,8 @@ void modEuler(double a, double b, int N, double alpha, double t_arr[], double w_
     {
         t_arr[i] = a + i * h;
         w_arr[i] = w_arr[i - 1] +
-                   (h / 2) * (f(t_arr[i - 1], w_arr[i - 1]) +
-                              f(t_arr[i], w_arr[i - 1] + h * f(t_arr[i - 1], w_arr[i - 1])));
+                   (h / 2) * (funcion(t_arr[i - 1], w_arr[i - 1]) +
+                              funcion(t_arr[i], w_arr[i - 1] + h * funcion(t_arr[i - 1], w_arr[i - 1])));
     }
 }
 
@@ -40,11 +40,11 @@ void rungeKutta4(double a, double b, int N, double alpha, double t[], double w[]
     for (int i = 1; i < N; i++)
     {
         t[i] = a + i * h;
-        k1 = h * f(t[i - 1], w[i - 1]);
-        k2 = h * f(t[i - 1] + h / 2, w[i - 1] + k1 / 2);
-        k3 = h * f(t[i - 1] + h / 2, w[i - 1] + k2 / 2);
-        k4 = h * f(t[i], w[i - 1] + k3);
-        w[i] = w[i - 1] + (1 / 6) * (k1 + 2 * k2 + 2 * k3 + k4);
+        k1 = h * funcion(t[i - 1], w[i - 1]);
+        k2 = h * funcion(t[i - 1] + h / 2, w[i - 1] + k1 / 2);
+        k3 = h * funcion(t[i - 1] + h / 2, w[i - 1] + k2 / 2);
+        k4 = h * funcion(t[i], w[i - 1] + k3);
+        w[i] = w[i - 1] + (k1 + 2 * k2 + 2 * k3 + k4) / 6.0;
     }
 }
 
@@ -54,11 +54,11 @@ int main()
     double t_arr_eu[N + 1];
     double w_arr_eu[N + 1];
     double t_arr_run[N + 1];
-    double w_arr_run[N + 1];
+    double w_arr_run4[N + 1];
     double real[N + 1];
 
+    rungeKutta4(0, 2, N, 0.5, t_arr_run, w_arr_run4);
     modEuler(0, 2, N, 0.5, t_arr_eu, w_arr_eu);
-    rungeKutta4(0, 2, N, 0.5, t_arr_run, w_arr_run);
 
     for (int i = 0; i < (N + 1); i++)
     {
@@ -73,9 +73,9 @@ int main()
     for (int i = 0; i < N; i++)
     {
         cout << "|" << setw(10) << fixed << setprecision(1) << t_arr_eu[i]
-             << "|" << setw(24) << fixed << setprecision(2) << w_arr_eu[i]
-             << "|" << setw(19) << fixed << setprecision(3) << w_arr_run[i]
-             << "|" << setw(7) << fixed << setprecision(1) << real[i]
+             << "|" << setw(24) << fixed << setprecision(3) << w_arr_eu[i]
+             << "|" << setw(19) << fixed << setprecision(3) << w_arr_run4[i]
+             << "|" << setw(7) << fixed << setprecision(3) << real[i]
              << endl;
     }
 }
