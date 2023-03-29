@@ -1,0 +1,17 @@
+Tarea1.
+Defina un arreglo de números enteros con 10 entradas. Llene este arreglo con números aleatorios del 1 al 100.
+Después de esto, haga dos funciones que hagan lo siguiente:
+
+1) En el "ordenamiento de burbuja", los valores más pequeños van “subiendo como burbujas” gradualmente, hasta llegar a la parte superior del arreglo (es decir, hacia el primer elemento) como las burbujas de aire que se elevan en el agua, mientras que los valores más grandes se hunden en el fondo. Esta técnica realiza varias pasadas a través del arreglo. En cada pasada compara pares sucesivos de elementos. Si un par se encuentra en orden ascendente (o los valores son idénticos), el ordenamiento de burbuja deja los valores como están. Si un par se encuentra en orden descendente, el ordenamiento de burbuja intercambia sus valores en el arreglo. Escriba una función que ordene el arreglo de 10 enteros mediante el
+uso del ordenamiento de burbuja.
+
+2) El ordenamiento de burbuja descrito en el ejercicio anterior es ineficiente para grandes arreglos. Realice las siguientes
+modificaciones simples para mejorar el rendimiento del ordenamiento de burbuja:
+a) Después de la primera pasada, se garantiza que el número más grande estará en el elemento con la numeración más
+alta del arreglo; después de la segunda pasada, los dos números más altos estarán “acomodados”, y así en lo sucesivo.
+En lugar de realizar nueve comparaciones en cada pasada, modifique el ordenamiento de burbuja para que realice
+ocho comparaciones en la segunda pasada, siete en la tercera, y así en lo sucesivo.
+b) Los datos en el arreglo tal vez se encuentren ya en el orden apropiado, o casi apropiado, así que ¿para qué realizar
+nueve pasadas, si basta con menos? Modifique el ordenamiento para comprobar al final de cada pasada si se han
+realizado intercambios. Si no se ha realizado ninguno, los datos ya deben estar en el orden apropiado, por lo que el
+programa debe terminar. Si se han realizado intercambios, por lo menos se necesita una pasada más.
