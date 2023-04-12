@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
   //3)
-  string outfilename = "clientestest.dat";
+  //string outfilename = "clientestest.dat";
   //ofstream archivoClientesSalida(outfilename.c_str() );
   //ofstream archivoClientesSalida(outfilename );
 
@@ -23,10 +23,11 @@ int main()
   ofstream archivoClientesSalida( "clientestest.dat", ios::out );
 
   // sale del programa si no puede crear el archivo
-  if ( archivoClientesSalida.fail() )      
-  //if ( !archivoClientesSalida ) 
+  //if ( archivoClientesSalida.fail() )      
+  if ( !archivoClientesSalida ) 
     {
-      cout << "No se pudo abrir el archivo" << endl;
+      //cout << "No se pudo abrir el archivo" << endl;
+      cerr << "No se pudo abrir el archivo" << endl;
       exit( 1 );
     }
 
@@ -44,7 +45,7 @@ int main()
       cout << "? ";
     }
 
-  //archivoClientesSalida.close(); 
+  archivoClientesSalida.close(); 
   
 return 0; 
 } 
