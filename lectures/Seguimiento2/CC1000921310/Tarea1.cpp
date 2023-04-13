@@ -39,11 +39,12 @@ int main() {
 
     Burbuja_Modificado(Arreglo_a_ordenar2, Tamanio);
 
-    cout << endl << "Arreglo 1 organizado con modified bubblesort:" << endl;
+    cout << endl << "Arreglo 2 organizado con modified bubblesort:" << endl;
     for (int i{0}; i < Tamanio; i++){
         cout << setw(4) << Arreglo_a_ordenar2[i];
     }
-    
+    cout << "\n";
+
     return 0;
 }
 
@@ -61,7 +62,7 @@ void Burbuja_Modificado(int * const arreglo, const int tamanio){
     int i{0};
     bool Listo{false};
     while (!Listo){
-        Listo = true; //Al inicio del recorrido asume que todo ya esta organizado, esto se desmiente en caso de que tenga que hacer una modificacion
+        Listo = true; //Al inicio del recorrido asume que todo ya esta organizado y que esta es la ultima iteracion, esto se desmiente en caso de que tenga que hacer una modificacion
         for(int j{0}; j < tamanio - 1 - i; j++){ //Cambiamos hasta donde se recorre el arreglo en cada iteracion
             if(arreglo[j + 1] < arreglo[j]){
                 Intercambiar( &arreglo[ j ], &arreglo[j + 1] );
