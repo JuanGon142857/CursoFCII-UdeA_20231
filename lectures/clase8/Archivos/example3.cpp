@@ -23,7 +23,7 @@ int main()
   
   if ( !archivoClientesSalida )
     {
-      cerr << "No se pudo abrir el archivo" << endl;
+      cerr << "Error: No se pudo abrir el archivo" << endl;
       exit( 1 );
     }
   
@@ -64,10 +64,29 @@ int main()
 	  
 	  archivoClientesSalida >> cuenta >> nombre >> saldo;
 	}
-
+      
       archivoClientesSalida.clear(); // restablece eof para la siguiente entrada
       archivoClientesSalida.seekg( 0 ); // se reposiciona al inicio del archivo
       solicitud = obtenerSolicitud(); // obtiene una solicitud adicional del usuario
+      
+      
+      //reset the stream for another pass
+      /*
+      int pos = archivoClientesSalida.tellg();
+      cout<<"pos is: "<<pos<<endl;     //pos is: -1  tellg() failed because the stream failed
+      
+      archivoClientesSalida.clear(); // restablece eof para la siguiente entrada
+      pos = archivoClientesSalida.tellg();
+      cout<<"pos is: "<<pos<<endl;     //pos is: 85 (aka the end of the file)
+      
+      //archivoClientesSalida.seekg(0,ios::beg ); // se reposiciona al inicio del archivo
+      //archivoClientesSalida.seekg( -85, ios::cur ); // se reposiciona al inicio del archivo
+      //archivoClientesSalida.seekg( -85, ios::end ); // se reposiciona al inicio del archivo
+      pos = archivoClientesSalida.tellg();               
+      cout<<"pos is: "<<pos<<endl;     //pos is: 0 and ready for action
+      
+      solicitud = obtenerSolicitud(); // obtiene una solicitud adicional del usuario
+      */
     }
   
   return 0; 
