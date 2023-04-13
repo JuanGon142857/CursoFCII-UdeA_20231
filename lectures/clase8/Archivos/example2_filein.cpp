@@ -14,10 +14,11 @@ int main()
   //ifstream archivoClientesEntrada( "../clientes.dat", ios::in );
   ifstream archivoClientesEntrada( "clientes.dat" );
 
-  //if ( !archivoClientesEntrada )
-  if ( archivoClientesEntrada.fail() )   
+  if( !archivoClientesEntrada )
+  //if( archivoClientesEntrada.fail() )   
     {
-      cout << "No se pudo abrir el archivo" << endl;
+      //cout << "No se pudo abrir el archivo" << endl;
+      cerr << "Error: no se pudo abrir el archivo" << endl;
       exit( 1 );
     }
 
@@ -29,7 +30,7 @@ int main()
 
   
   // muestra cada registro en el archivo
-  
+   
   while ( archivoClientesEntrada >> cuenta >> nombre >> saldo ){
     imprimirLinea( cuenta, nombre, saldo );
   }

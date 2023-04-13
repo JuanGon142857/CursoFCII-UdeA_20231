@@ -2,7 +2,12 @@ Tarea1.
 Defina un arreglo de números enteros con 10 entradas. Llene este arreglo con números aleatorios del 1 al 100.
 Después de esto, haga dos funciones que hagan lo siguiente:
 
-1) En el "ordenamiento de burbuja", los valores más pequeños van “subiendo como burbujas” gradualmente, hasta llegar a la parte superior del arreglo (es decir, hacia el primer elemento) como las burbujas de aire que se elevan en el agua, mientras que los valores más grandes se hunden en el fondo. Esta técnica realiza varias pasadas a través del arreglo. En cada pasada compara pares sucesivos de elementos. Si un par se encuentra en orden ascendente (o los valores son idénticos), el ordenamiento de burbuja deja los valores como están. Si un par se encuentra en orden descendente, el ordenamiento de burbuja intercambia sus valores en el arreglo. Escriba una función que ordene el arreglo de 10 enteros mediante el
+1) En el "ordenamiento de burbuja", los valores más pequeños van “subiendo como burbujas” gradualmente,
+hasta llegar a la parte superior del arreglo (es decir, hacia el primer elemento) como las burbujas de aire que se elevan en el agua,
+mientras que los valores más grandes se hunden en el fondo. Esta técnica realiza varias pasadas a través del arreglo.
+En cada pasada compara pares sucesivos de elementos. Si un par se encuentra en orden ascendente (o los valores son idénticos),
+el ordenamiento de burbuja deja los valores como están. Si un par se encuentra en orden descendente,
+el ordenamiento de burbuja intercambia sus valores en el arreglo. Escriba una función que ordene el arreglo de 10 enteros mediante el
 uso del ordenamiento de burbuja.
 
 2) El ordenamiento de burbuja descrito en el ejercicio anterior es ineficiente para grandes arreglos. Realice las siguientes
@@ -15,3 +20,28 @@ b) Los datos en el arreglo tal vez se encuentren ya en el orden apropiado, o cas
 nueve pasadas, si basta con menos? Modifique el ordenamiento para comprobar al final de cada pasada si se han
 realizado intercambios. Si no se ha realizado ninguno, los datos ya deben estar en el orden apropiado, por lo que el
 programa debe terminar. Si se han realizado intercambios, por lo menos se necesita una pasada más.
+
+
+Tarea2 (Jueves 13 de Abril)
+ESCRIBIR EN UN ARCHIVO DE TEXTO DOS LINEAS.
+Escribir una funcion, "RecibirCadenas",  que recibe como parametros dos cadenas que puede contener espacios y signos de puntuacion.
+la funcion deberá:
+
+    Decir qué cadena es mayor y cuál es menor alfabéticamente
+    Contar el número total de vocales en la cadena 1. Imprimir la frecuencia de cada vocal.
+    Generar una nueva cadena que será la primera cadena leída, con las vocales convertidas a MAYÚSCULAS
+    Generar una nueva cadena que será la segunda cadena leída, con las consonantes convertidas a MAYÚSCULAS
+    Generar una nueva cadena concatenando las dos que ya fueron convertidas
+    Generar una nueva cadena que contenga la cadena concatenada invertida
+    Por ultimo. En la cadena2 reemplace todos los signos de puntuación con espacios.
+
+Incluya la función "RecibirCadenas"  en un programa ejecutable en C++, y use el programa para leer el archivo de texto creado,
+y asi introduzca las dos cadena con las que probara su función.
+
+Al finalizar el programa, este deberá:
+    Imprimir las dos cadenas originales
+    Imprimir la frecuencia de cada vocal en la cadena 1
+    Imprimir las dos cadenas con las conversiones
+    Imprimir la cadena concatenada
+    Imprimir la cadena concatenada invertida
+    Imprimir la cadena 2 cuando los signos de puntuación se reemplace con espacios
