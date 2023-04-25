@@ -12,8 +12,8 @@ int main()
  
   // usa new para crear en forma dinámica dos nuevos objetos Empleado
   // el operador new también llama al constructor del objeto
-  Empleado *e1Ptr = new Empleado( "Kevin", "Zapata" );
-  Empleado *e2Ptr = new Empleado( "Daniela", "Torrez" );
+  Empleado *e1Ptr = new Empleado( "Sergio", "Castrillon" );
+  Empleado *e2Ptr = new Empleado( "Laura", "Arango" );
   
   // llama a getCuenta en el objeto Empleado nombre
   cout << "El numero de empleados despues de instanciar los objetos es "
@@ -28,7 +28,8 @@ int main()
   e1Ptr = 0; // desconecta el apuntador del espacio de almacenamiento libre
   delete e2Ptr;
   e2Ptr = 0; 
-  
+  //e2Ptr = NULL; 
+
   // no existen objetos, por lo que llama a la función miembro static getCuenta de nuevo
   // usando el nombre de la clase y el operador de resolución de ámbito binario
   cout << "El numero de empleados despues de eliminar los objetos es "
