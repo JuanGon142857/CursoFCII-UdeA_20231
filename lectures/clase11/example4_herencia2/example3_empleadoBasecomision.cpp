@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
   // instancia un objeto EmpleadoBaseMasComision
-  EmpleadoBaseMasComision  empleado( "Carlos", "Granada", "333-33-3333", 5000, .04, 300 );
+  EmpleadoBaseMasComision  empleado( "Esneider", "Velez", "333-33-3333", 5000, .04, 300 );
   
   // establece el formato de salida de punto flotante
   cout << fixed << setprecision( 2 );
