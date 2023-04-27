@@ -88,39 +88,60 @@ void toUpperCons(string &cadena)
          << "La cadena 2 con las consonantes convertidas a mayúsculas es: " << cadena << endl;
 }
 
-void invertirCadena(string &cadena, string cadena_to_convert)
+void invertirCadena(const string &cadena_to_convert, string &cadena)
 {
-    int i = cadena_to_convert.length() - 1, j = 0;
-    while ((i = 0) && (j < cadena_to_convert.length()))
+    for (int i = cadena_to_convert.length() - 1; i >= 0; --i)
     {
-        // char letra = ;
-        // cadena.insert(j, letra);
-        cadena.push_back(cadena_to_convert[i]);
-        i--;
-        j++;
+        cadena.push_back(cadena_to_convert.at(i));
     }
 }
 
-void ccambiarPuntuacion(string &cadena)
+void cambiarPuntuacion(string &cadena)
 {
     int indice = 0;
     while (cadena.find_first_of(",.;_!¡¿?", indice) && (indice < cadena.length()))
     {
         indice = cadena.find_first_of(",.;_!¡¿?", indice);
-        // cadena.replace(0,cadena[indice]," ");
+        if (indice >= 0)
+        {
+            cadena.replace(indice, 1, " ");
+        }
     }
-
-    cout << endl
-         << "La cadena 2 con las consonantes convertidas a mayúsculas es: " << cadena << endl;
 }
 
-void RecibirCadenas(string cadena1, string cadena2)
+void RecibirCadenas(string &cadena1, string &cadena2)
 {
     // enum Vocales{a=1,e,i,o,u};
     imprimirComparacion(cadena1, cadena2);
     vector<int> vocales(5, 0);
     int suma_cadena1 = freqVocales(cadena1, vocales);
+    cout << endl;
     cout << "La cantidad de vocales es: " << suma_cadena1 << endl;
+
+    string cadena1_copy(cadena1);
+    string cadena2_copy(cadena2);
+
+    toUpperVocals(cadena1_copy);
+    toUpperCons(cadena2_copy);
+    cout << endl;
+
+    string cadena3_concat(cadena1_copy + " " + cadena2_copy);
+    cout << endl
+         << "La concatenación de las dos cadenas convertidas es:\t " << endl
+         << cadena3_concat << endl
+         << endl;
+
+    string cadena4_invert;
+    invertirCadena(cadena3_concat, cadena4_invert);
+    cout << endl
+         << "La cadena invertida es: " << endl
+         << cadena4_invert << endl
+         << endl;
+
+    string cadena5_punt(cadena2);
+    cambiarPuntuacion(cadena5_punt);
+    cout << "La cadena 2 con los signos de puntuación reemplazados por espacios es: " << cadena5_punt << endl
+         << endl;
 }
 
 int main()
@@ -145,25 +166,9 @@ int main()
     }
     cout << "La cadena 1 es: " << cadenas[0] << endl
          << "la cadena 2 es: " << cadenas[1] << endl
+         << endl
          << endl;
 
     RecibirCadenas(cadenas[0], cadenas[1]);
-
-    string cadena1_copy(cadenas[0]);
-    string cadena2_copy(cadenas[1]);
-
-    toUpperVocals(cadena1_copy);
-    toUpperCons(cadena2_copy);
-
-    string cadena3_concat(cadena1_copy + " " + cadena2_copy);
-    cout << endl
-         << "La concatenación de las dos cadenas convertidas es:\t " << endl
-         << cadena3_concat << endl;
-
-    string cadena4_invert;
-    invertirCadena(cadena4_invert, cadena3_concat);
-    cout << endl
-         << "La cadena invertida es: " << cadena4_invert << endl;
-
     return 0;
 }
