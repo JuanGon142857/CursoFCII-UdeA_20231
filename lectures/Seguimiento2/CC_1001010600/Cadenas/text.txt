@@ -1,0 +1,2 @@
+Este es el archivo de prueba.
+contiene puntos, comas, muchas letras y dos lineas.
