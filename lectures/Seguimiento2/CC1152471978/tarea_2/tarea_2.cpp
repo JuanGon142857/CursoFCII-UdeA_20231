@@ -136,12 +136,12 @@ void reemplazar(string cadena){
     cout<<"La cadena :"<<cadena<<endl;
     
     for(int i=0;i<cadena.length();i++){
-        if(cadena[i]==' '||cadena[i]==','||cadena[i]=='?'||cadena[i]=='!'||cadena[i]==';'||cadena[i]==':'||cadena[i]=='-'){
-            cadena[i]='.';
+        if(cadena[i]=='.'||cadena[i]==','||cadena[i]=='?'||cadena[i]=='!'||cadena[i]==';'||cadena[i]==':'||cadena[i]=='-'){
+            cadena[i]=' ';
         }
     }
     
-    cout<<"con los signos de puntuacion reemplazados por puntos es: "<<cadena<<endl;
+    cout<<"con los signos de puntuacion reemplazados por espacios es: "<<cadena<<endl;
     cout<<endl;
 }
 
