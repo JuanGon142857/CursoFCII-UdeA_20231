@@ -15,12 +15,20 @@ Circular::Circular(double radio, double frecuencia, double delta_t, double tiemp
     setTiempo(tiempo);
     setFase(fase);
     setN();
+    t = new vector<double>;
     setT();
+    x = new vector<double>;
     setX();
+    y = new vector<double>;
     setY();
 }
 
-Circular::~Circular() {}
+Circular::~Circular()
+{
+    delete[] t;
+    delete[] x;
+    delete[] y;
+}
 
 void Circular::setRadio(double radio)
 {
@@ -107,9 +115,10 @@ double Circular::ypos(double t)
 
 void Circular::setT()
 {
+
     for (int i = 0; i < N; i++)
     {
-        t.push_back(i * getDelta_t());
+        t->push_back(i * getDelta_t());
     }
 }
 
@@ -117,7 +126,7 @@ void Circular::setX()
 {
     for (int i = 0; i < N; i++)
     {
-        x.push_back(xpos(t.at(i)));
+        x->push_back(xpos(t->at(i)));
     }
 }
 
@@ -126,7 +135,7 @@ void Circular::getX() const
     cout << "Las posiciones en x son: " << endl;
     for (int i = 0; i < N; i++)
     {
-        cout << "Para t=" << t.at(i) << setw(3) << "se tiene x=" << x.at(i) << endl;
+        cout << "Para t=" << t->at(i) << setw(3) << "se tiene x=" << x->at(i) << endl;
     }
 }
 
@@ -134,7 +143,7 @@ void Circular::setY()
 {
     for (int i = 0; i < N; i++)
     {
-        y.push_back(ypos(t.at(i)));
+        y->push_back(ypos(t->at(i)));
     }
 }
 
@@ -143,7 +152,7 @@ void Circular::getY() const
     cout << "Las posiciones en y son: " << endl;
     for (int i = 0; i < N; i++)
     {
-        cout << "Para t=" << t.at(i) << setw(3) << "se tiene y=" << y.at(i) << endl;
+        cout << "Para t=" << t->at(i) << setw(3) << "se tiene y=" << y->at(i) << endl;
     }
 }
 
@@ -158,9 +167,9 @@ void Circular::EscribirDocumento()
         exit(1);
     }
     dataMovimiento << "t,x,y" << endl;
-    for (int i = 0; i < t.size(); i++)
+    for (int i = 0; i < t->size(); i++)
     {
-        dataMovimiento << t.at(i) << "," << x.at(i) << "," << y.at(i) << endl;
+        dataMovimiento << t->at(i) << "," << x->at(i) << "," << y->at(i) << endl;
     }
 
     dataMovimiento.close();

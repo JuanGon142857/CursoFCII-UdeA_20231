@@ -45,9 +45,9 @@ private:
     double tiempo_total;
     int N;
     double fase;
-    vector<double> t;
-    vector<double> x;
-    vector<double> y;
+    vector<double> *t;
+    vector<double> *x;
+    vector<double> *y;
 };
 
 class Espiral : public Circular
