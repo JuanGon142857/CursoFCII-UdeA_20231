@@ -6,7 +6,7 @@ using namespace std;
 class Circular
 {
 public:
-    Circular(double, double, double, double, double);
+    Circular(const double, const double, const double, const double, const double);
     ~Circular();
 
     void setRadio(double);
@@ -28,13 +28,13 @@ public:
     double getFase() const;
 
     void setT();
-    double getT(int indice) const;
+    double getT(int) const;
     void printT() const;
     void setX();
-    double getX(int indice) const;
+    double getX(int) const;
     void printX() const;
     void setY();
-    double getY(int indice) const;
+    double getY(int) const;
     void printY() const;
 
     double xpos(double);
@@ -52,13 +52,4 @@ private:
     vector<double> *t;
     vector<double> *x;
     vector<double> *y;
-};
-
-class Espiral : public Circular
-{
-public:
-private:
-    double z_inicial;
-    double velocidad_z;
-    vector<double> zpos;
 };

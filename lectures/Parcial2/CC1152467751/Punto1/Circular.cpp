@@ -8,7 +8,7 @@ using namespace std;
 
 const double PI = acos(-1);
 
-Circular::Circular(double radio, double frecuencia, double delta_t, double tiempo, double fase)
+Circular::Circular(const double radio, const double frecuencia, const double delta_t, const double tiempo, const double fase)
 {
     setRadio(radio);
     setFrecuencia(frecuencia);
@@ -23,14 +23,15 @@ Circular::Circular(double radio, double frecuencia, double delta_t, double tiemp
 
 Circular::~Circular()
 {
-    cout << "destructor" << endl;
     delete t;
-    // delete[] x;
-    // delete[] y;
-    cout << "destructor 2" << endl;
+    t = 0;
+    delete x;
+    x = 0;
+    delete y;
+    y = 0;
 }
 
-void Circular::setRadio(double radio)
+void Circular::setRadio(const double radio)
 {
     if (radio >= 0)
     {
