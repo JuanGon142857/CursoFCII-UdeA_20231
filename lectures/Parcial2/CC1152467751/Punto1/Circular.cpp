@@ -3,6 +3,7 @@
 #include <math.h>
 #include "Circular.h"
 #include <fstream>
+#include <vector>
 using namespace std;
 
 const double PI = acos(-1);
@@ -16,91 +17,90 @@ Circular::Circular(double radio, double frecuencia, double delta_t, double tiemp
     setFase(fase);
     setN();
     t = new vector<double>;
-    setT();
     x = new vector<double>;
-    setX();
     y = new vector<double>;
-    setY();
 }
 
 Circular::~Circular()
 {
-    delete[] t;
-    delete[] x;
-    delete[] y;
+    cout << "destructor" << endl;
+    delete t;
+    // delete[] x;
+    // delete[] y;
+    cout << "destructor 2" << endl;
 }
 
 void Circular::setRadio(double radio)
 {
     if (radio >= 0)
     {
-        radio = radio;
+        radioCircular = radio;
     }
 }
 
 double Circular::getRadio() const
 {
-    return radio;
+    return radioCircular;
 }
 
 void Circular::setFrecuencia(double frecuencia)
 {
     if (frecuencia >= 0)
     {
-        frecuencia = frecuencia;
+        frecuenciaCircular = frecuencia;
     }
 }
 
 double Circular::getFrecuencia() const
 {
-    return frecuencia;
+    return frecuenciaCircular;
 }
 
 void Circular::setDelta_t(double delta_t)
 {
     if (delta_t >= 0)
     {
-        delta_t = delta_t;
+        delta_tCircular = delta_t;
     }
 }
 
 double Circular::getDelta_t() const
 {
-    return delta_t;
+    return delta_tCircular;
 }
 
 void Circular::setTiempo(double tiempo)
 {
     if (tiempo >= 0)
     {
-        tiempo_total = tiempo;
+        tiempo_totalCircular = tiempo;
     }
 }
 
 double Circular::getTiempo() const
 {
-    return tiempo_total;
+    return tiempo_totalCircular;
 }
 
 void Circular::setFase(double fase)
 {
 
-    fase = fase * (PI / 180);
+    faseCircular = fase * (PI / 180);
 }
 
 double Circular::getFase() const
 {
-    return fase;
+    return faseCircular;
 }
 
 void Circular::setN()
 {
-    N = (int)(getTiempo() / getDelta_t());
+    NCircular = (int)(getTiempo() / getDelta_t());
 }
 
 int Circular::getN() const
 {
-    return N;
+    return NCircular;
 }
 
 double Circular::xpos(double t)
@@ -116,43 +116,69 @@ double Circular::ypos(double t)
 void Circular::setT()
 {
 
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i <= getN(); i++)
     {
-        t->push_back(i * getDelta_t());
+        t->push_back((double)i * getDelta_t());
+        // t->at(i) = (double)i * getDelta_t();
+    }
+}
+
+double Circular::getT(int indice) const
+{
+    return t->at(indice);
+}
+
+void Circular::printT() const
+{
+    cout << "t=" << endl;
+    for (int i = 0; i <= getN(); i++)
+    {
+        cout << t->at(i) << endl;
     }
 }
 
 void Circular::setX()
 {
-    for (int i = 0; i < N; i++)
+
+    for (int i = 0; i <= getN(); i++)
     {
         x->push_back(xpos(t->at(i)));
     }
 }
 
-void Circular::getX() const
+double Circular::getX(int indice) const
+{
+    return x->at(indice);
+}
+
+void Circular::printX() const
 {
     cout << "Las posiciones en x son: " << endl;
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i <= getN(); i++)
     {
-        cout << "Para t=" << t->at(i) << setw(3) << "se tiene x=" << x->at(i) << endl;
+        cout << "Para t= " << t->at(i) << setw(3) << " se tiene x= " << x->at(i) << endl;
     }
 }
 
 void Circular::setY()
 {
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i <= getN(); i++)
     {
         y->push_back(ypos(t->at(i)));
     }
 }
 
-void Circular::getY() const
+double Circular::getY(int indice) const
+{
+    return y->at(indice);
+}
+
+void Circular::printY() const
 {
     cout << "Las posiciones en y son: " << endl;
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i <= getN(); i++)
     {
-        cout << "Para t=" << t->at(i) << setw(3) << "se tiene y=" << y->at(i) << endl;
+        cout << "Para t= " << t->at(i) << setw(3) << " se tiene y= " << y->at(i) << endl;
     }
 }
 
@@ -167,7 +193,7 @@ void Circular::EscribirDocumento()
         exit(1);
     }
     dataMovimiento << "t,x,y" << endl;
-    for (int i = 0; i < t->size(); i++)
+    for (int i = 0; i <= getN(); i++)
     {
         dataMovimiento << t->at(i) << "," << x->at(i) << "," << y->at(i) << endl;
     }

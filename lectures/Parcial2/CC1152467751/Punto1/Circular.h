@@ -28,10 +28,14 @@ public:
     double getFase() const;
 
     void setT();
+    double getT(int indice) const;
+    void printT() const;
     void setX();
-    void getX() const;
+    double getX(int indice) const;
+    void printX() const;
     void setY();
-    void getY() const;
+    double getY(int indice) const;
+    void printY() const;
 
     double xpos(double);
     double ypos(double);
@@ -39,12 +43,12 @@ public:
     void EscribirDocumento();
 
 private:
-    double radio;
-    double frecuencia;
-    double delta_t;
-    double tiempo_total;
-    int N;
-    double fase;
+    double radioCircular;
+    double frecuenciaCircular;
+    double delta_tCircular;
+    double tiempo_totalCircular;
+    int NCircular;
+    double faseCircular;
     vector<double> *t;
     vector<double> *x;
     vector<double> *y;
