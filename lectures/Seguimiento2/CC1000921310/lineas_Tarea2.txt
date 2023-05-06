@@ -1,0 +1,2 @@
+Esta es la linea primera: En el inicio un dia, el chico se levanta.
+Esta es la linea segunda: En el final un dia, el chico se acuesta.

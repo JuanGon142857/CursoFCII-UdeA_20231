@@ -35,6 +35,5 @@ int main()
              << "¿Desea volver a jugar?" << endl
              << "Introduzca 1 si desea volver a jugar o 0 si desea salir del juego:  " << endl;
         cin >> repetir;
-        Flag = repetir == 1 ? 1 : 0;
     }
 }
