@@ -78,11 +78,11 @@ void Ahorcado :: Comprobar_Letra(){
 void Ahorcado :: Adivinar_Palabra(){
     Dibujar();
     Mostrar_Palabra();
-    int userInput;
+    char userInput;
     cout << "Digite 1 si desea adivinar la palabra completa (esto contara como un intento) \n";
     cin >> userInput;
 
-    if (userInput == 1){
+    if (userInput == '1'){
         
         cout << "Adivine la palabra completa: ";
         string intento_adivinar_palabra; // Aqui se guarda la entrada del usuario cuando trate de adivinar la palabra completa
