@@ -64,7 +64,7 @@ void Ahorcado :: Comprobar_Letra(){
 
     if( found != string::npos ){
         while( found != string::npos ){
-            palabra_adivinada.replace(found, 1, &letra);
+            palabra_adivinada.replace(found, 1, letra);
             found = palabra.find(letra, found + 1);
         }
         Adivinar_Palabra();

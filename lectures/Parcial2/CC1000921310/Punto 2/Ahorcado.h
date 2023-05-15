@@ -29,7 +29,7 @@ class Ahorcado{
         std :: vector<std :: string> Lista;
         std :: string palabra;  //La palabra que se debe adivinar
         std :: string palabra_adivinada;  //Aqui se guardan las letras que el usuario haya adivinado
-        char letra;
+        std :: string letra;
         int Intentos;
 
 };
