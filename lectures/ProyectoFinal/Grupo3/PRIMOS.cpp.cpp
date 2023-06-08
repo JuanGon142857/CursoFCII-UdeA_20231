@@ -14,7 +14,7 @@ int main() {
     X[0][0] = 0; X[0][1] = 0; X[0][2]=0;X[0][2]=0; y[0][0] = 0;
     X[1][0] = 0; X[1][1] = 0; X[1][2]=0;X[1][3]=1; y[1][0] = 0;
     X[2][0] = 0; X[2][1] = 0; X[2][2]=1;X[2][3]=0; y[2][0] = 1; 
-    X[3][0] = 0; X[3][1] = 0; X[3][2]=1;X[3][3]=1; y[3][0] = 0; 
+    X[3][0] = 0; X[3][1] = 0; X[3][2]=1;X[3][3]=1; y[3][0] = 1; 
     X[4][0] = 0; X[4][1] = 1; X[4][2]=0;X[4][3]=0; y[4][0] = 0; 
     X[5][0] = 0; X[5][1] = 1; X[5][2]=0;X[5][3]=1; y[5][0] = 1; 
     X[6][0] = 0; X[6][1] = 1; X[6][2]=1;X[6][3]=0; y[6][0] = 0; 
@@ -29,7 +29,7 @@ int main() {
     X[15][0] = 1; X[15][1] = 1; X[15][2]=1;X[15][3]=1; y[15][0] = 0;
 
     // Crear y entrenar la red neuronal
-    neurona_multicapa neurona_multicapa(4, 8, 1); 
+    neurona_multicapa neurona_multicapa(4, 7, 1); 
     neurona_multicapa.entrenamiento(X, y, 0.1, 10000, tam_entrenamiento);  // Ajuste: Incrementar el número de épocas de entrenamiento
 
     // Predecir la salida para nuevos datos
